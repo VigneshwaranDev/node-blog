@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Blog</title>
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+      integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk"
+      crossorigin="anonymous"
+    />
+  </head>
+  <body>
+    <%- include("header") %>
+    <div class="container">
+      <a href="/blog/new" class="btn btn-outline-primary">New Blog</a>
+      <% blogs.forEach(blog => { %>
+      <div class="card mt-4">
+        <div class="card-body">
+          <h4 class="card-title"><%= blog.title %></h4>
+          <div class="card-subtitle text-muted mb-2">
+            <p><%= blog.createdAt.toLocaleDateString() %></p>
+          </div>
+          <div class="card-text mb-2"><%= blog.short_desc %></div>
+          <a href="/blog/show/<%= blog._id%>" class="btn btn-info">Read More</a>
+        </div>
+      </div>
+      <% }) %>
+    </div>
+    <%- include("footer") %>
+  </body>
+</html>
