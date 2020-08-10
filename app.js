@@ -3,12 +3,15 @@ const Blog = require("./models/blog");
 const router = require("./routes/router");
 const express = require("express");
 const ejs = require("ejs");
+const path = require("path");
 const methodOverride = require("method-override");
 
 const port = process.env.PORT | 3000;
+const publicDir = path.join(__dirname, "./public");
 
 const app = express();
 app.set("view engine", "ejs");
+app.use(express.static(publicDir));
 app.use(express.urlencoded({ extended: false }));
 app.use(methodOverride("_method"));
 
