@@ -14,7 +14,7 @@ app.use(methodOverride("_method"));
 
 app.get("/", async (req, res) => {
   const blog = await Blog.find().sort({ createdAt: "desc" });
-  res.render("index", { blogs: blog, title: "Node Blog" });
+  res.render("index", { blogs: blog, title: "Vigneshwaran's Blog" });
 });
 
 app.use("/blog", router);
